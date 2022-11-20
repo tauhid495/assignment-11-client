@@ -5,7 +5,7 @@ import { auth } from '../../firebase.init';
 import { toast } from 'react-toastify';
 
 const Login = () => {
-    const [user]=useAuthState(auth);
+    const [user] = useAuthState(auth);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [errorMail, setErrorMail] = useState('');
@@ -70,7 +70,7 @@ const Login = () => {
 
         if (user) {
 
-            const url = 'https://pacific-reef-07454.herokuapp.com/login';
+            const url = 'https://assignment-11-server-production.up.railway.app/login';
 
             fetch(url, {
                 method: "POST",
@@ -82,14 +82,14 @@ const Login = () => {
                 },
             })
                 .then(res => res.json())
-                .then(data =>{
-                    
+                .then(data => {
+
                     localStorage.setItem("accessToken", data.token)
 
                     navigate(from, { replace: true });
                 });
 
-            
+
         }
     }, [user, googleUser, gitUser])
 

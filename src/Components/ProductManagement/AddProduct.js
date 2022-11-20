@@ -4,36 +4,36 @@ import { toast } from 'react-toastify';
 import { auth } from '../../firebase.init';
 
 const AddProduct = () => {
-    const [user]=useAuthState(auth);
+    const [user] = useAuthState(auth);
 
     const handleSubmit = e => {
         e.preventDefault();
-        const name =e.target.name.value;
-        const image =e.target.image.value;
-        const price =e.target.price.value;
-        const supplier =e.target.supplier.value;
-        const description =e.target.description.value;
-        const inventory =parseFloat(e.target.inventory.value);
-        const userEmail=user.email;
+        const name = e.target.name.value;
+        const image = e.target.image.value;
+        const price = e.target.price.value;
+        const supplier = e.target.supplier.value;
+        const description = e.target.description.value;
+        const inventory = parseFloat(e.target.inventory.value);
+        const userEmail = user.email;
 
-        const item={name, image, price, supplier, description, inventory, userEmail };
+        const item = { name, image, price, supplier, description, inventory, userEmail };
 
         // sending data to server
-        fetch('https://pacific-reef-07454.herokuapp.com/item', {
-            method:'POST',
-            headers:{
-                'authorization':`${user.email} ${localStorage.getItem("accessToken")}`,
-                'content-type':'application/json'
+        fetch('https://assignment-11-server-production.up.railway.app/item', {
+            method: 'POST',
+            headers: {
+                'authorization': `${user.email} ${localStorage.getItem("accessToken")}`,
+                'content-type': 'application/json'
             },
-            body:JSON.stringify(item)
+            body: JSON.stringify(item)
         })
-        .then(res=>res.json())
-        .then(data=>{
-            if(data.insertedId){
-                toast.success('Product added by user')
-            }
-            e.target.reset();
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    toast.success('Product added by user')
+                }
+                e.target.reset();
+            })
 
     }
 
@@ -50,7 +50,7 @@ const AddProduct = () => {
                     <div className='text-xl text-center'> Add Product</div>
                     <div className="form-group mb-6">
                         <label htmlFor="name" className="form-label inline-block mb-2 text-gray-700">Product Name</label>
-                        <input required type="text" name = 'name'className="form-control
+                        <input required type="text" name='name' className="form-control
                             block  w-full px-3 py-1.5 text-base font-normal
                             text-gray-700 bg-white bg-clip-padding
                             border border-solid border-gray-300 rounded
@@ -60,7 +60,7 @@ const AddProduct = () => {
 
                     <div className="form-group mb-6">
                         <label htmlFor="picture" className="form-label inline-block mb-2 text-gray-700">Product Image</label>
-                        <input required type="text" name = 'image' className="form-control
+                        <input required type="text" name='image' className="form-control
                             block  w-full px-3 py-1.5 text-base font-normal
                             text-gray-700 bg-white bg-clip-padding
                             border border-solid border-gray-300 rounded
@@ -69,7 +69,7 @@ const AddProduct = () => {
                     </div>
                     <div className="form-group mb-6">
                         <label htmlFor="supplier" className="form-label inline-block mb-2 text-gray-700">Supplier Name</label>
-                        <input required type="text" name = 'supplier' className="form-control
+                        <input required type="text" name='supplier' className="form-control
                             block  w-full px-3 py-1.5 text-base font-normal
                             text-gray-700 bg-white bg-clip-padding
                             border border-solid border-gray-300 rounded
@@ -79,7 +79,7 @@ const AddProduct = () => {
 
                     <div className="form-group mb-6">
                         <label htmlFor="price" className="form-label inline-block mb-2 text-gray-700">Product Price</label>
-                        <input required type="number" name = 'price' className="form-control
+                        <input required type="number" name='price' className="form-control
                             block  w-full px-3 py-1.5 text-base font-normal
                             text-gray-700 bg-white bg-clip-padding
                             border border-solid border-gray-300 rounded
@@ -88,7 +88,7 @@ const AddProduct = () => {
                     </div>
                     <div className="form-group mb-6">
                         <label htmlFor="price" className="form-label inline-block mb-2 text-gray-700">Product Quantity</label>
-                        <input required type="number" name = 'inventory' className="form-control
+                        <input required type="number" name='inventory' className="form-control
                             block  w-full px-3 py-1.5 text-base font-normal
                             text-gray-700 bg-white bg-clip-padding
                             border border-solid border-gray-300 rounded
@@ -98,7 +98,7 @@ const AddProduct = () => {
 
                     <div className="form-group mb-6">
                         <label htmlFor="description" className="form-label inline-block mb-2 text-gray-700">Product Description</label>
-                        <textarea type="textarea" name = 'description' className="form-control
+                        <textarea type="textarea" name='description' className="form-control
                             block  w-full px-3 py-1.5 text-base font-normal
                             text-gray-700 bg-white bg-clip-padding
                             border border-solid border-gray-300 rounded

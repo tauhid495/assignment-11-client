@@ -7,12 +7,12 @@ import TableHead from './tableHead/TableHead';
 const ManageInventories = () => {
 
     const [items, setItems] = useItems();
-    const navigate= useNavigate();
+    const navigate = useNavigate();
 
     const handleDelete = id => {
         const proceed = window.confirm('Want to delete?')
         if (proceed) {
-            const url = `https://pacific-reef-07454.herokuapp.com/item/${id}`
+            const url = `https://assignment-11-server-production.up.railway.app/item/${id}`
 
             fetch(url, {
                 method: 'DELETE'
@@ -32,12 +32,12 @@ const ManageInventories = () => {
             <div className='text-center text-xl md:text-4xl my-6'>Manage Inventory Items</div>
 
             <div className='md:flex justify-between w-1/2 mx-auto'>
-                <p className='md:w-2/4  mb-5'>Total Items : {items.length}</p> 
-                <button onClick={()=> navigate('/addproduct')}
-                     className='mb-5 mr-6 bg-hotpink hover:bg-base-black text-white py-1 px-6'
-                     >Add Items</button>
+                <p className='md:w-2/4  mb-5'>Total Items : {items.length}</p>
+                <button onClick={() => navigate('/addproduct')}
+                    className='mb-5 mr-6 bg-hotpink hover:bg-base-black text-white py-1 px-6'
+                >Add Items</button>
             </div>
-            <TableHead/>
+            <TableHead />
 
             {
                 items.map(item => <Table

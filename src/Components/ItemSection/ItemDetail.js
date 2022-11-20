@@ -9,7 +9,7 @@ const ItemDetail = () => {
     const [itemData, setItemData] = useState({});
 
     useEffect(() => {
-        const url = `https://pacific-reef-07454.herokuapp.com/item/${itemId}`;
+        const url = `https://assignment-11-server-production.up.railway.app/item/${itemId}`;
 
         fetch(url)
             .then(res => res.json())
@@ -27,7 +27,7 @@ const ItemDetail = () => {
         } else {
             const newInventory = (itemData.inventory) + (stockInputInt);
 
-            fetch(`https://pacific-reef-07454.herokuapp.com/item/${itemId}`, {
+            fetch(`https://assignment-11-server-production.up.railway.app/item/${itemId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -48,7 +48,7 @@ const ItemDetail = () => {
         } else {
             const newInventory = (itemData.inventory - 1);
 
-            fetch(`https://pacific-reef-07454.herokuapp.com/item/${itemId}`, {
+            fetch(`https://assignment-11-server-production.up.railway.app/item/${itemId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -101,7 +101,7 @@ const ItemDetail = () => {
                 </div>
 
             </div>
-            
+
             <div className='text-center'>
                 <Link className='drop-shadow-sm text-xl text-hotpink hover:text-base-black'
                     to='/manageinventories'>Manage Inventories</Link>

@@ -11,7 +11,7 @@ const MyItems = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Want to delete?')
         if (proceed) {
-            const url = `https://pacific-reef-07454.herokuapp.com/item/${id}`
+            const url = `https://assignment-11-server-production.up.railway.app/item/${id}`
 
             fetch(url, {
                 method: 'DELETE'
@@ -28,7 +28,7 @@ const MyItems = () => {
 
     useEffect(() => {
         const email = user.email;
-        const url = `https://pacific-reef-07454.herokuapp.com/myitems?email=${email}`;
+        const url = `https://assignment-11-server-production.up.railway.app/myitems?email=${email}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setMyItems(data))
@@ -41,15 +41,15 @@ const MyItems = () => {
             </h1>
 
             {/* cards */}
-            
+
             <div className='md:grid grid-cols-3 gap-7 mb-10'>
-            {
-                myItems.map(myItem=>
-                <MyItemCard
-                key={myItem._id} myItem={myItem} 
-                handleDelete={handleDelete}
-                />)
-            }
+                {
+                    myItems.map(myItem =>
+                        <MyItemCard
+                            key={myItem._id} myItem={myItem}
+                            handleDelete={handleDelete}
+                        />)
+                }
             </div>
         </div>
     );
