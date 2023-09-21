@@ -9,7 +9,7 @@ const ItemDetail = () => {
     const [itemData, setItemData] = useState({});
 
     useEffect(() => {
-        const url = `https://assignment-11-server-production.up.railway.app/item/${itemId}`;
+        const url = `https://assignment-11-bw8x.onrender.com/item/${itemId}`;
 
         fetch(url)
             .then(res => res.json())
@@ -27,7 +27,7 @@ const ItemDetail = () => {
         } else {
             const newInventory = (itemData.inventory) + (stockInputInt);
 
-            fetch(`https://assignment-11-server-production.up.railway.app/item/${itemId}`, {
+            fetch(`https://assignment-11-bw8x.onrender.com/item/${itemId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -48,7 +48,7 @@ const ItemDetail = () => {
         } else {
             const newInventory = (itemData.inventory - 1);
 
-            fetch(`https://assignment-11-server-production.up.railway.app/item/${itemId}`, {
+            fetch(`https://assignment-11-bw8x.onrender.com/item/${itemId}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",

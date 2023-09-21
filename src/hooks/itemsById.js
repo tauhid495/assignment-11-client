@@ -7,7 +7,7 @@ const useItemById = () => {
 
     const [itemData, setItemData] = useState({});
     useEffect(() => {
-        const url = `https://assignment-11-server-production.up.railway.app/item/${itemId}`;
+        const url = `https://assignment-11-bw8x.onrender.com/item/${itemId}`;
 
         fetch(url)
             .then(res => res.json())

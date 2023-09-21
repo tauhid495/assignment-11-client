@@ -19,7 +19,7 @@ const AddProduct = () => {
         const item = { name, image, price, supplier, description, inventory, userEmail };
 
         // sending data to server
-        fetch('https://assignment-11-server-production.up.railway.app/item', {
+        fetch('https://assignment-11-bw8x.onrender.com/item', {
             method: 'POST',
             headers: {
                 'authorization': `${user.email} ${localStorage.getItem("accessToken")}`,

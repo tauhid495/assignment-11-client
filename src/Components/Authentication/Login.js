@@ -70,7 +70,7 @@ const Login = () => {
 
         if (user) {
 
-            const url = 'https://assignment-11-server-production.up.railway.app/login';
+            const url = 'https://assignment-11-bw8x.onrender.com/login';
 
             fetch(url, {
                 method: "POST",

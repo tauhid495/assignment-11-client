@@ -12,7 +12,7 @@ const ManageInventories = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Want to delete?')
         if (proceed) {
-            const url = `https://assignment-11-server-production.up.railway.app/item/${id}`
+            const url = `https://assignment-11-bw8x.onrender.com/item/${id}`
 
             fetch(url, {
                 method: 'DELETE'
